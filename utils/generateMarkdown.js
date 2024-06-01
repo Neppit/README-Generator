@@ -24,17 +24,26 @@ function renderLicenseSection(license) {
 
 // Function to generate markdown content for README
 function generateMarkdown(data) {
+  // Generate GitHub profile link
+  const githubLink = `https://github.com/${data.github}`;
+
   // Generate README content with provided data
   return `
 # ${data.projectTitle}
+
+${renderLicenseBadge(data.license)}
 
 ## Description
 ${data.description}
 
 ## Table of Contents
+- [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
 
 ## Usage
 ${data.usage}
@@ -44,7 +53,15 @@ ${data.credits}
 
 ${renderLicenseSection(data.license)}
 
-${renderLicenseBadge(data.license)}
+## Contributing
+${data.contributing}
+
+## Tests
+${data.tests}
+
+## Questions
+- GitHub: [${data.github}](${githubLink})
+- Email: ${data.email}
 `;
 }
 
