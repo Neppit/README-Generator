@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 
 // TODO: Create an array of questions for user input
@@ -51,7 +52,17 @@ This project is licensed under the ${data.license} license.
 // Example content generation - customize this based on your requirements
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt(questions)
+        .then((answers) => {
+            console.log(answers)
+            const markdownContent = generateMarkdown(answers);
+            writeToFile('README.md', markdownContent);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+}
 
 // Function call to initialize app
 init();
