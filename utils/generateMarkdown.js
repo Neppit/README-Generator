@@ -35,9 +35,15 @@ function generateMarkdown(data) {
 ## Description
 ${data.description}
 
-${renderLicenseBadge(data.license)}
+## Usage
+${data.usage}
+
+## Credits
+${data.credits}
 
 ${renderLicenseSection(data.license)}
+
+${renderLicenseBadge(data.license)}
 `;
 }
 

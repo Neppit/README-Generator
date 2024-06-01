@@ -17,12 +17,21 @@ const questions = [
         message: 'Provide a description of your project:'
     },
     {
+        type: 'input',
+        name: 'usage',
+        message: 'Provide usage instructions:'
+    },
+    {
+        type: 'input',
+        name: 'credits',
+        message: 'List credits (e.g., contributors, libraries, resources):'
+    },
+    {
         type: 'list',
         name: 'license',
         message: 'Choose a license for your project:',
         choices: ['MIT', 'Apache 2.0', 'GPL 3.0', 'BSD 3', 'None']
-    },
-    // Add more questions as needed
+    }
 ];
 
 // TODO: Create a function to write README file
@@ -39,13 +48,7 @@ function writeToFile(fileName, data) {
 function generateReadmeContent(data) {
     // Generate the content of the README file based on the user input data
     return `
-# ${data.projectTitle}
-
-## Description
-${data.description}
-
-## License
-This project is licensed under the ${data.license} license.
+ ${data}
 `;
 }
 
@@ -55,7 +58,6 @@ This project is licensed under the ${data.license} license.
 function init() {
     inquirer.prompt(questions)
         .then((answers) => {
-            console.log(answers)
             const markdownContent = generateMarkdown(answers);
             writeToFile('README.md', markdownContent);
         })
