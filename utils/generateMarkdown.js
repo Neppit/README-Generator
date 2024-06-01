@@ -35,6 +35,11 @@ function generateMarkdown(data) {
 ## Description
 ${data.description}
 
+## Table of Contents
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+
 ## Usage
 ${data.usage}
 

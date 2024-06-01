@@ -5,6 +5,11 @@
 ## Description
 test
 
+## Table of Contents
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+
 ## Usage
 test
 
