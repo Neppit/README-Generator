@@ -1,10 +1,9 @@
-// TODO: Include packages needed for this application
+// Include required packages
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
-
-// TODO: Create an array of questions for user input
+// Array of questions for user input
 const questions = [
     {
         type: 'input',
@@ -34,7 +33,7 @@ const questions = [
     }
 ];
 
-// TODO: Create a function to write README file
+// Function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, generateReadmeContent(data), (err) => {
         if (err) {
@@ -45,26 +44,29 @@ function writeToFile(fileName, data) {
     });
 }
 
+// Function to generate content for README file
 function generateReadmeContent(data) {
-    // Generate the content of the README file based on the user input data
+    // Placeholder function; you should implement this to generate the actual content
     return `
  ${data}
 `;
 }
 
-// Example content generation - customize this based on your requirements
-
-// TODO: Create a function to initialize app
+// Function to initialize the application
 function init() {
+    // Prompt user with questions and handle responses
     inquirer.prompt(questions)
         .then((answers) => {
+            // Generate markdown content based on user responses
             const markdownContent = generateMarkdown(answers);
+            // Write markdown content to README file
             writeToFile('README.md', markdownContent);
         })
         .catch((error) => {
+            // Handle errors
             console.error(error);
         });
 }
 
-// Function call to initialize app
+// Initialize the application
 init();
